@@ -6,7 +6,7 @@ function addRow() {
     var row = table.insertRow(rowCount);
 
     var cell = row.insertCell(0);
-    cell.innerHTML = 'ola';
+    cell.innerHTML = document.getElementById("textfield").value;
 
     var cell1 = row.insertCell(1);
     var element1 = document.createElement("input");
