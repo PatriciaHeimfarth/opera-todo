@@ -31,13 +31,7 @@ function deleteCheckedTodos() {
     checkedBoxes.forEach(i => {
         let nm = i.getAttribute("class");
         let items = document.getElementsByClassName(nm);
-
-        itemsarr = Array.from(items);
-
-        itemsarr.forEach(j => {
-            j.remove();
-        })
-
+ 
 
         let index = todos.indexOf(nm);
         if (index !== -1) {
@@ -46,6 +40,7 @@ function deleteCheckedTodos() {
         }
     })
     localStorage.setItem("todos", JSON.stringify(todos));
+    dispatchEvent(new Event('load'));
 }
 
 window.onload = function () {
