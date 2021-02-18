@@ -3,7 +3,7 @@
 
 	"name": "ToDo List",
 	"description": "A ToDo List for the Opera Sidebar",
-	"version": "1.0",
+	"version": "0.1",
 	"background": {
 		"scripts": ["background.js"]
 	},

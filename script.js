@@ -29,14 +29,11 @@ function deleteCheckedTodos() {
         'input:checked');
 
     checkedBoxes.forEach(i => {
-        let nm = i.getAttribute("class");
-        let items = document.getElementsByClassName(nm);
- 
 
-        let index = todos.indexOf(nm);
+        let index = todos.indexOf(i.getAttribute("class"));
         if (index !== -1) {
             todos.splice(index, 1);
-            
+
         }
     })
     localStorage.setItem("todos", JSON.stringify(todos));
