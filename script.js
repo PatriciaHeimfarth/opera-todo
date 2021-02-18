@@ -17,12 +17,14 @@ function addRow() {
     cell1.append(element1);
 
     localStorage.setItem("todos", JSON.stringify(todos));
+    dispatchEvent(new Event('load'));
+
 }
 
 function deleteCheckedTodos() {
     let localData = localStorage.getItem("todos");
     let todos = localData ? JSON.parse(localData) : [];
-   
+
     let checkedBoxes = document.querySelectorAll(
         'input:checked');
 
@@ -36,19 +38,25 @@ function deleteCheckedTodos() {
             j.remove();
         })
 
-        
+
         let index = todos.indexOf(nm);
         if (index !== -1) {
             todos.splice(index, 1);
-            localStorage.setItem("todos", JSON.stringify(todos));
+            
         }
     })
+    localStorage.setItem("todos", JSON.stringify(todos));
 }
 
 window.onload = function () {
 
     let localData = localStorage.getItem("todos");
     let todos = localData ? JSON.parse(localData) : [];
+    let table = document.getElementById("table");
+    let rowCount = table.rows.length;
+    for (let x = rowCount - 1; x > 0; x--) {
+        table.deleteRow(x);
+    }
 
     todos.forEach(function f(currentValue) {
         let rowCount = table.rows.length;
